@@ -40,7 +40,7 @@ Most notably, the steam and ammonia production and compressor rpm show dips, whi
 
 The signal-to-noise-ratio for the steam production sensor is low, indicating that building a model on raw sensor data may not be able to infer significant information from the signal.
 
-According to the observation, downtimes will be filtered out based on the compressor speeds below 4900 rpm, ammonia consumption that is negative and steam production below 200t/h.
+According to the observation, downtimes will be filtered out based on the compressor speeds below 4900 rpm, steam production that is negative and ammonia production below 200t/h.
 
 Checking for missing values shows that `hum_amb` and `T_amb` both have 6 missing values in the same points in time, `p_amb` has 279 missing values. The missing value samples are << than 1% of the total samples, and are be dropped without significant data loss.
 
@@ -49,7 +49,7 @@ The following data cleaning steps are implemented:
 1. Removal of production downtime, by filtering samples with compressor speeds below 4900rpm. Other dips are visible that do not entail a complete shutdown, that should be covered in the model.
 1. Filtering of samples with negative steam production, this may not be physically accurate
 1. Dropping samples with missing values
-1. Rolling average denoising of steam prodcution signal
+1. Rolling average denoising of steam production signal
 
 ## Step 2. Basic Data Statistics
 
@@ -57,9 +57,7 @@ The plot below shows sample correlation and distributions.
 
 ![pairplot](figures/filtered_pairplot.png)
 
-The data shows mostly normal-like distributions. There seems to be a almost linear correlation between compressor rpm and steam production.
-
-A simple baseline model will be based solely on the compressor rpm as a benchmark.
+The data shows mostly normal-like distributions. There seems to be a almost linear correlation between compressor rpm and ammonia consumption.
 
 ## Step 3. Model Testing
 
