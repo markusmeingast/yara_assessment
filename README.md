@@ -98,6 +98,10 @@ The RandomForest model shows the following picture in terms of feature importanc
 
 ![SHAP values](figures/rf_shap_value.png)
 
+The RandomForest prediction does seem to hit the mean value, but has issues predicting smaller process dynamics.
+
+![RF prediction](figures/rf_prediction.png)
+
 ## Possible Next Steps
 
 1. Improve steam production measurement
